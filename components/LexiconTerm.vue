@@ -1,11 +1,10 @@
 <template>
-  <!-- This example requires Tailwind CSS v2.0+ -->
-  <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+  <div class="bg-white shadow overflow-hidden sm:rounded-lg my-4">
     <div class="px-4 py-5 sm:px-6">
-      <h3 class="text-lg leading-6 font-medium text-gray-900">
+      <h3 class="text-3xl leading-tight font-black text-gray-900">
         {{ term.title }}
       </h3>
-      <p class="mt-1 max-w-2xl text-sm text-gray-500">
+      <p class="mt-1 text-lg text-gray-500">
         {{ term.oneline }}
       </p>
     </div>

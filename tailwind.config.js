@@ -6,6 +6,9 @@ module.exports = {
   ],
   darkMode: 'media', // or 'media' or 'class'
   theme: {
+    fontFamily: {
+      'sans': ['Lato', 'ui-sans-serif'],
+    },
     extend: {},
   },
   variants: {
