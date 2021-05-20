@@ -1,5 +1,7 @@
 ---
 title: Link
+types:
+ - Interactive
 oneline: Links can be used as a supportive element or its own block.
 related:
  - Button

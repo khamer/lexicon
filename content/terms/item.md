@@ -1,5 +1,7 @@
 ---
-title: Item (Supportive Element)
+title: Item
+types:
+ - Supportive
 oneline: a supportive element that should be used on list items.
 related:
  - List

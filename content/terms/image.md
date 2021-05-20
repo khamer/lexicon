@@ -1,5 +1,7 @@
 ---
-title: Image (Supportive Element)
+title: Image
+types:
+ - Supportive
 oneline: A non-semantic, supportive element for targeting `<img>`, `<picture>`, or `<svg>` elements.
 related:
  - Input

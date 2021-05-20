@@ -1,5 +1,7 @@
 ---
-title: Actions (Supportive Element)
+title: Actions
+types:
+ - Supportive
 oneline: A group of Action elements.
 related:
  - Action

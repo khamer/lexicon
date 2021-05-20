@@ -1,5 +1,7 @@
 ---
-title: Action (Supportive Element)
+title: Action
+types:
+ - Supportive
 oneline: A button or link such as a Call to Action within sections, articles, or cards.
 related:
  - Actions

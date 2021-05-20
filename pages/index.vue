@@ -39,10 +39,6 @@ export default {
   }),
   computed: {
     filteredTerms() {
-      if (!this.query || !this.terms) {
-        return this.terms
-      }
-
       const regex = new RegExp(
         this.query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'),
         'i'
@@ -57,7 +53,8 @@ export default {
           if (this.score(regex, a) < this.score(regex, b)) {
             return 1
           }
-          return 0
+
+          return a.title > b.title ? 1 : a.title < b.title ? -1 : 0
         })
     },
   },

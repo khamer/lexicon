@@ -1,5 +1,7 @@
 ---
-title: Content (Supportive Element)
+title: Content
+types:
+ - Supportive
 oneline: a non-semantic, supportive element used for the main content of a section or card.
 related:
   - Container

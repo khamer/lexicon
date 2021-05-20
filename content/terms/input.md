@@ -1,5 +1,8 @@
 ---
-title: Input (Supportive Element)
+title: Input
+types:
+ - Interactive
+ - Supportive
 oneline: A non-semantic, supportive element for targeting `<input>` elements.
 related:
  - Label

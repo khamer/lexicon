@@ -1,5 +1,7 @@
 ---
-title: Container (Supportive Element)
+title: Container
+types:
+ - Supportive
 oneline: a non-semantic, supportive element used to group all child elements of a block together.
 related:
   - Content

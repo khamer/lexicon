@@ -1,5 +1,7 @@
 ---
 title: Button
+types:
+ - Interactive
 oneline: Buttons are typically their own block as they are reused throughout sites.
 related:
  - Action
