@@ -3,15 +3,16 @@
   <div class="min-h-screen bg-gray-100">
     <div class="py-10">
       <header>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex">
-          <h1 class="text-3xl font-bold leading-tight text-gray-900 mr-8">
-            Lexicon
+        <div class="max-w-7xl mx-auto pl-4 sm:px-6 lg:px-8 flex">
+          <h1 class="text-3xl font-black leading-tight text-gray-900 mr-8">
+            <a href="/" @click.prevent="query('')">Lexicon</a>
           </h1>
 
           <div class="flex-1">
             <input
-              v-model="query"
-              type="text"
+              v-model="queryTerms"
+              autofocus
+              type="search"
               placeholder="Filter Terms..."
               class="block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 rounded-md py-2 px-4"
             />
@@ -20,10 +21,16 @@
       </header>
       <main class="py-4">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+          <p class="text-gray-500 px-4 sm:px-0">
+            A naming guide for web developers, designers, and strategists.
+          </p>
+        </div>
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
           <lexicon-term
             v-for="term in filteredTerms"
             :key="term.slug"
             :term="term"
+            @query="query"
           />
         </div>
       </main>
@@ -34,13 +41,13 @@
 <script>
 export default {
   data: () => ({
-    query: '',
+    queryTerms: '',
     terms: [],
   }),
   computed: {
     filteredTerms() {
       const regex = new RegExp(
-        this.query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'),
+        this.queryTerms.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'),
         'i'
       )
 
@@ -57,21 +64,47 @@ export default {
           return a.title > b.title ? 1 : a.title < b.title ? -1 : 0
         })
     },
+
+    exactMatch() {
+      return this.terms.filter(
+        ({ title }) => title.toLowerCase() === this.queryTerms.toLowerCase()
+      ).length
+    },
   },
   mounted() {
+    this.queryTerms = location.hash.replace(/^#/, '')
     this.$content('terms')
       .fetch()
       .then((response) => (this.terms = response))
   },
+
   methods: {
+    query(term) {
+      this.queryTerms = term
+      history.replaceState({}, term, term ? `#${term}` : '/')
+      scrollTo(0, 0)
+    },
+    flatten(node) {
+      return [].concat(
+        node.value ?? [],
+        ...(node.children ? node.children.map(this.flatten) : [])
+      )
+    },
+
     score(regex, term) {
       if (regex.test(term.title)) {
+        return 4
+      }
+      if (regex.test(term.types ? term.types.join(', ') : '')) {
         return 3
       }
       if (regex.test(term.oneline)) {
         return 2
       }
-      // const r = (n) => regex.test(n.value) ? true : (n.children.length ? n.children.some(
+
+      if (regex.test(this.flatten(term.body).join(' '))) {
+        return 1
+      }
     },
   },
 }
