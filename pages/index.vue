@@ -21,7 +21,7 @@
       </header>
       <main class="py-4">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-          <p class="opacity-50 px-4 sm:px-0">
+          <p class="text-gray-600 px-4 sm:px-0">
             A naming guide for web developers, designers, and strategists.
           </p>
         </div>
