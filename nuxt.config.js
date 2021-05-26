@@ -33,7 +33,14 @@ export default {
     '@nuxtjs/eslint-module',
     // https://tailwindcss.com/docs/guides/nuxtjs
     '@nuxtjs/tailwindcss',
+    'nuxt-font-loader',
   ],
+
+  fontLoader: {
+    url: 'https://use.typekit.net/ymy8mui.js',
+    prefetch: true,
+    preconnect: true
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [

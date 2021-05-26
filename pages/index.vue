@@ -1,10 +1,10 @@
 <template>
   <!-- This example requires Tailwind CSS v2.0+ -->
-  <div class="min-h-screen bg-gray-100">
+  <div class="min-h-screen bg-salt text-ash">
     <div class="py-10">
       <header>
         <div class="max-w-7xl mx-auto pl-4 sm:px-6 lg:px-8 flex">
-          <h1 class="text-3xl font-black leading-tight text-gray-900 mr-8">
+          <h1 class="text-3xl font-black leading-tight mr-8">
             <a href="/" @click.prevent="query('')">Lexicon</a>
           </h1>
 
@@ -21,7 +21,7 @@
       </header>
       <main class="py-4">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-          <p class="text-gray-500 px-4 sm:px-0">
+          <p class="opacity-50 px-4 sm:px-0">
             A naming guide for web developers, designers, and strategists.
           </p>
         </div>
